@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Complete Your Payment | School of Grant Success</title>
+    
+    <!-- Meta Pixel Code - REPLACE WITH YOUR PIXEL ID -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID_HERE');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel Code -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --sgs-green-1: #19A44D;
+            --sgs-green-2: #2D9961;
+            --sgs-yellow: #E5F12A;
+            --white: #FEFFFF;
+            --gray-dark: #2C3E50;
+            --gray-medium: #7F8C8D;
+            --gray-light: #ECF0F1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--sgs-green-1), var(--sgs-green-2));
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .thankyou-container {
+            background-color: var(--white);
+            max-width: 700px;
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .thankyou-header {
+            background: linear-gradient(135deg, var(--sgs-green-1), var(--sgs-green-2));
+            padding: 40px 30px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 3.5rem;
+            animation: scaleIn 0.5s ease 0.3s backwards;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .thankyou-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .thankyou-subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .thankyou-body {
+            padding: 40px 30px;
+        }
+
+        .personalized-message {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .personalized-message h2 {
+            font-size: 1.5rem;
+            color: var(--gray-dark);
+            margin-bottom: 10px;
+        }
+
+        .personalized-message p {
+            color: var(--gray-medium);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .urgency-banner {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .urgency-banner p {
+            color: var(--gray-dark);
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-dark);
+            margin-bottom: 25px;
+        }
+
+        .payment-options {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .payment-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border: 3px solid var(--gray-light);
+            border-radius: 12px;
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: var(--gray-dark);
+        }
+
+        .payment-btn:hover {
+            border-color: var(--sgs-green-1);
+            background-color: var(--sgs-green-1);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(25, 164, 77, 0.2);
+        }
+
+        .payment-btn.featured {
+            border-color: var(--sgs-green-1);
+            background: linear-gradient(135deg, var(--sgs-green-1), var(--sgs-green-2));
+            color: var(--white);
+            position: relative;
+        }
+
+        .payment-btn.featured::before {
+            content: "BEST VALUE";
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--sgs-yellow);
+            color: var(--gray-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 800;
+        }
+
+        .payment-info {
+            flex: 1;
+        }
+
+        .payment-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .payment-description {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .payment-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+
+        .savings-badge {
+            background-color: #E8F5E9;
+            color: var(--sgs-green-1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-left: 10px;
+        }
+
+        .payment-btn.featured .savings-badge {
+            background-color: rgba(255,255,255,0.3);
+            color: var(--white);
+        }
+
+        .features-list {
+            background-color: var(--gray-light);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .features-list h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--gray-dark);
+        }
+
+        .features-list ul {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: var(--gray-dark);
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--sgs-green-1);
+            font-weight: 700;
+        }
+
+        .whatsapp-cta {
+            text-align: center;
+            padding: 25px;
+            background-color: #E8F5E9;
+            border-radius: 12px;
+        }
+
+        .whatsapp-cta h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--gray-dark);
+        }
+
+        .whatsapp-cta p {
+            color: var(--gray-medium);
+            margin-bottom: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #20BA5A;
+            transform: scale(1.05);
+        }
+
+        .security-note {
+            text-align: center;
+            padding: 20px;
+            color: var(--gray-medium);
+            font-size: 0.85rem;
+            border-top: 1px solid var(--gray-light);
+        }
+
+        @media (max-width: 768px) {
+            .thankyou-title {
+                font-size: 2rem;
+            }
+
+            .thankyou-body {
+                padding: 30px 20px;
+            }
+
+            .payment-btn {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .payment-price {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="thankyou-container">
+        <!-- Header -->
+        <div class="thankyou-header">
+            <div class="success-icon">✓</div>
+            <h1 class="thankyou-title">Registration Successful!</h1>
+            <p class="thankyou-subtitle">You're one step away from transforming your business funding journey</p>
+        </div>
+
+        <!-- Body -->
+        <div class="thankyou-body">
+            <!-- Personalized Message -->
+            <div class="personalized-message">
+                <h2>Welcome, <span id="userName">Future Grant Winner</span>! 🎉</h2>
+                <p>We've received your registration and sent a confirmation email to <strong id="userEmail">your inbox</strong>.</p>
+            </div>
+
+            <!-- Urgency Banner -->
+            <div class="urgency-banner">
+                <p>⚡ Secure your spot now! Early bird pricing ends soon and spots are filling fast.</p>
+            </div>
+
+            <!-- Section Title -->
+            <h3 class="section-title">Complete Your Payment to Reserve Your Spot</h3>
+
+            <!-- Payment Options -->
+            <div class="payment-options">
+                <!-- Option 1: One-Time Payment (Featured) -->
+                <a href="https://selar.com/p/hmla99?affiliate=53rm355t51" class="payment-btn featured" id="paymentOption1">
+                    <div class="payment-info">
+                        <div class="payment-title">One-Time Payment</div>
+                        <div class="payment-description">Pay once and save the most</div>
+                    </div>
+                    <div>
+                        <span class="payment-price">₦55,000</span>
+                        <span class="savings-badge">SAVE ₦10K</span>
+                    </div>
+                </a>
+
+                <!-- Option 2: 2-Payment Plan -->
+                <a href="https://selar.com/p/4810y17710?affiliate=r97o8794p4" class="payment-btn" id="paymentOption2">
+                    <div class="payment-info">
+                        <div class="payment-title">2-Payment Plan</div>
+                        <div class="payment-description">₦30,000 × 2 installments</div>
+                    </div>
+                    <div>
+                        <span class="payment-price">₦60,000</span>
+                    </div>
+                </a>
+
+                <!-- Option 3: 3-Payment Plan -->
+                <a href="https://selar.com/p/7126491112?affiliate=7q863x1bz7"               class="payment-btn" id="paymentOption3">
+                    <div class="payment-info">
+                        <div class="payment-title">3-Payment Plan</div>
+                        <div class="payment-description">₦21,667 × 3 installments</div>
+                    </div>
+                    <div>
+                        <span class="payment-price">₦65,000</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- What You Get -->
+            <div class="features-list">
+                <h3>What You'll Get:</h3>
+                <ul>
+                    <li>6-Week Live Training Sessions</li>
+                    <li>50+ Professional Grant Writing Templates</li>
+                    <li>1-on-1 Mentorship & Proposal Reviews</li>
+                    <li>Lifetime Access to Grant Database</li>
+                    <li>Exclusive Community of 500+ Grant Winners</li>
+                    <li>Certificate of Completion</li>
+                    <li>Recorded Sessions for Lifetime Access</li>
+                </ul>
+            </div>
+
+            <!-- WhatsApp CTA -->
+            <div class="whatsapp-cta">
+                <h3>Have Questions?</h3>
+                <p>Chat with us on WhatsApp for instant support</p>
+                <a href="https://wa.me/2347045108885?text=Hi!%20I%20just%20registered%20for%20the%20Grant%20Writing%20Course" class="whatsapp-btn" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                        <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411zm-8.475 18.297c-1.777 0-3.518-.479-5.032-1.378l-.36-.214-3.742.98 1-3.648-.235-.374c-.99-1.571-1.512-3.389-1.512-5.26.003-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898 1.868 1.869 2.893 4.352 2.892 6.993-.003 5.451-4.437 9.887-9.887 9.887z"/>
+                    </svg>
+                    Chat on WhatsApp
+                </a>
+            </div>
+
+            <!-- Security Note -->
+            <div class="security-note">
+                <p>🔒 Secure payment powered by Selar • Your information is safe and encrypted</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuration - PASTE YOUR SELAR LINKS HERE
+        const SELAR_ONE_TIME = 'YOUR_SELAR_ONE_TIME_LINK_HERE';
+        const SELAR_TWO_PAYMENT = 'YOUR_SELAR_TWO_PAYMENT_LINK_HERE';
+        const SELAR_THREE_PAYMENT = 'YOUR_SELAR_THREE_PAYMENT_LINK_HERE';
+
+        // Load personalized data
+        window.addEventListener('load', function() {
+            const registrationData = sessionStorage.getItem('registrationData');
+            
+            if (registrationData) {
+                const data = JSON.parse(registrationData);
+                document.getElementById('userName').textContent = data.name;
+                document.getElementById('userEmail').textContent = data.email;
+            }
+
+            // Track InitiateCheckout event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: 'Grant Writing Course Payment Options',
+                    value: 55000,
+                    currency: 'NGN'
+                });
+            }
+        });
+
+        // Payment button handlers
+        document.getElementById('paymentOption1').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Track Purchase event
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: 'One-Time Payment',
+                    value: 55000,
+                    currency: 'NGN'
+                });
+            }
+            
+            window.location.href = SELAR_ONE_TIME;
+        });
+
+        document.getElementById('paymentOption2').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: '2-Payment Plan',
+                    value: 60000,
+                    currency: 'NGN'
+                });
+            }
+            
+            window.location.href = SELAR_TWO_PAYMENT;
+        });
+
+        document.getElementById('paymentOption3').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart', {
+                    content_name: '3-Payment Plan',
+                    value: 65000,
+                    currency: 'NGN'
+                });
+            }
+            
+            window.location.href = SELAR_THREE_PAYMENT;
+        });
+    </script>
+</body>
+</html>
