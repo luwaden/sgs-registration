@@ -4,9 +4,9 @@
 
 // ---- CONFIGURATION — paste your links here ----
 const FORM_LINK          = "/registration-form.html";
-const SELAR_ONE_TIME     = "https://selar.com/p/hmla99?affiliate=53rm355t51";
-const SELAR_TWO_PAYMENT  = "https://selar.com/p/4810y17710?affiliate=r97o8794p4";
-const SELAR_THREE_PAYMENT = "https://selar.com/p/7126491112?affiliate=7q863x1bz7";
+const SELAR_ONE_TIME     = "/registration-form.html";
+const SELAR_TWO_PAYMENT  = "/registration-form.html";
+const SELAR_THREE_PAYMENT = "/registration-form.html";
 const WHATSAPP_GROUP     = "PASTE_WHATSAPP_GROUP_LINK";
 
 // ---- Boot ----
