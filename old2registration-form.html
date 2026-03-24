@@ -6,6 +6,8 @@
     <meta name="description" content="Register for the Grant Writing Course - School of Grant Success">
     <title>Register Now - School of Grant Success</title>
     
+    <!-- Meta Pixel Code - REPLACE WITH YOUR PIXEL ID -->
+
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -22,10 +24,31 @@ fbq('track', 'PageView');
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
 /></noscript>
-<!-- End Meta Pixel Code -->
+
+    <!-- <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID_HERE');
+    fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+        src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID_HERE&ev=PageView&noscript=1"/>
+    </noscript> -->
+    <!-- End Meta Pixel Code -->
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --sgs-green-1: #19A44D;
@@ -60,7 +83,7 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
 
         @keyframes slideUp {
             from { opacity: 0; transform: translateY(30px); }
-            to   { opacity: 1; transform: translateY(0); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .form-header {
@@ -70,9 +93,23 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
             color: var(--white);
         }
 
-        .logo { max-width: 150px; margin-bottom: 20px; filter: brightness(0) invert(1); }
-        .form-title { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
-        .form-subtitle { font-size: 1.1rem; opacity: 0.95; line-height: 1.5; }
+        .logo {
+            max-width: 150px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .form-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .form-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
 
         .urgency-badge {
             display: inline-block;
@@ -85,20 +122,22 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
             margin-top: 15px;
         }
 
-        .form-body { padding: 40px 30px; }
+        .form-body {
+            padding: 40px 30px;
+        }
 
-        .form-group { margin-bottom: 25px; }
-
-        /* Side-by-side name row */
-        .name-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
+        .form-group {
             margin-bottom: 25px;
         }
-        .name-row .form-group { margin-bottom: 0; }
 
-        label { display: block; font-weight: 600; margin-bottom: 8px; color: var(--gray-dark); font-size: 0.95rem; }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--gray-dark);
+            font-size: 0.95rem;
+        }
+
         .required { color: var(--error-red); }
 
         input[type="text"],
@@ -132,25 +171,14 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
             75% { transform: translateX(5px); }
         }
 
-        .error-message { color: var(--error-red); font-size: 0.85rem; margin-top: 5px; display: none; }
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.85rem;
+            margin-top: 5px;
+            display: none;
+        }
+
         .error-message.show { display: block; }
-
-        /* Payment plan section */
-        .payment-section-label {
-            font-size: 0.78rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            color: var(--sgs-green-1);
-            margin-bottom: 6px;
-        }
-
-        .payment-hint {
-            margin-top: 8px;
-            font-size: 0.82rem;
-            color: var(--gray-medium);
-            line-height: 1.4;
-        }
 
         .submit-btn {
             width: 100%;
@@ -173,21 +201,34 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
             box-shadow: 0 10px 30px rgba(25, 164, 77, 0.3);
         }
 
-        .submit-btn:disabled { background-color: var(--gray-medium); cursor: not-allowed; transform: none; }
+        .submit-btn:disabled {
+            background-color: var(--gray-medium);
+            cursor: not-allowed;
+            transform: none;
+        }
 
-        .loading { display: none; text-align: center; padding: 40px; }
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+
         .loading.show { display: block; }
 
         .spinner {
             border: 4px solid var(--gray-light);
             border-top: 4px solid var(--sgs-green-1);
             border-radius: 50%;
-            width: 50px; height: 50px;
+            width: 50px;
+            height: 50px;
             animation: spin 1s linear infinite;
             margin: 0 auto 15px;
         }
 
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
         .security-badge {
             text-align: center;
@@ -195,12 +236,6 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
             color: var(--gray-medium);
             font-size: 0.85rem;
             border-top: 1px solid var(--gray-light);
-        }
-
-        @media (max-width: 480px) {
-            .name-row { grid-template-columns: 1fr; }
-            .name-row .form-group { margin-bottom: 25px; }
-            .name-row .form-group:last-child { margin-bottom: 0; }
         }
 
         @media (max-width: 768px) {
@@ -221,19 +256,10 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
 
         <div class="form-body" id="formBody">
             <form id="registrationForm">
-
-                <!-- First Name + Last Name -->
-                <div class="name-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name <span class="required">*</span></label>
-                        <input type="text" id="firstName" name="firstName" required placeholder="e.g., Amara">
-                        <div class="error-message" id="firstNameError">Please enter your first name</div>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name <span class="required">*</span></label>
-                        <input type="text" id="lastName" name="lastName" required placeholder="e.g., Okafor">
-                        <div class="error-message" id="lastNameError">Please enter your last name</div>
-                    </div>
+                <div class="form-group">
+                    <label for="fullName">Full Name <span class="required">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                    <div class="error-message" id="fullNameError">Please enter your full name</div>
                 </div>
 
                 <div class="form-group">
@@ -283,20 +309,6 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
                     <div class="error-message" id="countryError">Please select your country</div>
                 </div>
 
-                <!-- Payment Plan -->
-                <div class="form-group">
-                    <div class="payment-section-label">💳 Choose Your Payment Plan</div>
-                    <label for="paymentPlan">Payment Plan <span class="required">*</span></label>
-                    <select id="paymentPlan" name="paymentPlan" required>
-                        <option value="">Select a payment plan</option>
-                        <option value="One-Time Payment — ₦55,000">One-Time Payment — ₦55,000 (Best Value)</option>
-                        <option value="2-Part Payment — ₦30,000 x 2">2-Part Payment — ₦30,000 × 2 (₦60,000 total)</option>
-                        <option value="3-Part Payment — ₦25,000 + ₦20,000 + ₦20,000">3-Part Payment — ₦25,000 + ₦20,000 + ₦20,000 (₦65,000 total)</option>
-                    </select>
-                    <div class="error-message" id="paymentPlanError">Please select a payment plan</div>
-                    <p class="payment-hint">ℹ️ Payment instructions will be sent to your email after registration.</p>
-                </div>
-
                 <button type="submit" class="submit-btn" id="submitBtn">
                     Complete Registration
                 </button>
@@ -314,28 +326,25 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
     </div>
 
     <script>
-        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzLVcV3Kknx66ZihVL0Fwe-GxbtBqcl5829ckkYzPaTneLEdFkoDMHadKfamIzRJpwF/exec';
-        const THANK_YOU_PAGE  = 'thankyou.html';
+        const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx3I5o2WQ14Qht8fllA5WxtZj8JCEqI3Jd-26xnVfr4oDsb7bWZDxXWQjhWFC2AyKFt/exec';
+        const THANK_YOU_PAGE = 'thankyou.html';
 
         document.getElementById('registrationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+
             if (!validateForm()) return;
 
-            const utmSource  = getUTMSource();
-            const firstName  = document.getElementById('firstName').value.trim();
-            const lastName   = document.getElementById('lastName').value.trim();
+            const utmSource = getUTMSource();
 
+            // Build a plain object with all fields
             const formData = {
                 timestamp:    new Date().toISOString(),
-                firstName:    firstName,
-                lastName:     lastName,
-                fullName:     firstName + ' ' + lastName,   // kept for backend compatibility
+                fullName:     document.getElementById('fullName').value.trim(),
                 email:        document.getElementById('email').value.trim(),
                 whatsapp:     document.getElementById('whatsapp').value.trim(),
                 city:         document.getElementById('city').value.trim(),
                 state:        document.getElementById('state').value.trim(),
                 country:      document.getElementById('country').value,
-                paymentPlan:  document.getElementById('paymentPlan').value,
                 utm_source:   utmSource.utm_source,
                 utm_medium:   utmSource.utm_medium,
                 utm_campaign: utmSource.utm_campaign,
@@ -343,6 +352,7 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
                 utm_term:     utmSource.utm_term
             };
 
+            // Track Meta Pixel Lead event
             if (typeof fbq !== 'undefined') {
                 fbq('track', 'Lead', {
                     content_name: 'Grant Writing Course Registration',
@@ -352,24 +362,32 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
                 });
             }
 
+            // Show loading
             document.getElementById('registrationForm').style.display = 'none';
             document.getElementById('loadingState').classList.add('show');
 
             try {
+                // ✅ KEY FIX: Use URLSearchParams instead of JSON + no-cors.
+                // This sends as application/x-www-form-urlencoded which Apps Script
+                // reads via e.parameter, bypassing the no-cors body stripping issue.
                 const params = new URLSearchParams(formData);
+
                 await fetch(APPS_SCRIPT_URL, {
-                    method:  'POST',
-                    mode:    'no-cors',
+                    method: 'POST',
+                    mode: 'no-cors', // still needed to avoid CORS error in browser
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body:    params.toString()
+                    body: params.toString()
                 });
 
+                // Store for thank you page
                 sessionStorage.setItem('registrationData', JSON.stringify({
-                    name:  formData.fullName,
+                    name: formData.fullName,
                     email: formData.email
                 }));
 
-                setTimeout(() => { window.location.href = THANK_YOU_PAGE; }, 1500);
+                setTimeout(() => {
+                    window.location.href = THANK_YOU_PAGE;
+                }, 1500);
 
             } catch (error) {
                 console.error('Submission error:', error);
@@ -382,15 +400,10 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
         function validateForm() {
             let isValid = true;
 
-            const firstName = document.getElementById('firstName');
-            if (!firstName.value.trim() || firstName.value.trim().length < 2) {
-                showError('firstName', 'firstNameError'); isValid = false;
-            } else { hideError('firstName', 'firstNameError'); }
-
-            const lastName = document.getElementById('lastName');
-            if (!lastName.value.trim() || lastName.value.trim().length < 2) {
-                showError('lastName', 'lastNameError'); isValid = false;
-            } else { hideError('lastName', 'lastNameError'); }
+            const fullName = document.getElementById('fullName');
+            if (!fullName.value.trim() || fullName.value.trim().length < 3) {
+                showError('fullName', 'fullNameError'); isValid = false;
+            } else { hideError('fullName', 'fullNameError'); }
 
             const email = document.getElementById('email');
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -418,11 +431,6 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
                 showError('country', 'countryError'); isValid = false;
             } else { hideError('country', 'countryError'); }
 
-            const paymentPlan = document.getElementById('paymentPlan');
-            if (!paymentPlan.value) {
-                showError('paymentPlan', 'paymentPlanError'); isValid = false;
-            } else { hideError('paymentPlan', 'paymentPlanError'); }
-
             return isValid;
         }
 
@@ -449,12 +457,17 @@ src="https://www.facebook.com/tr?id=2799367907079370&ev=PageView&noscript=1"
 
         window.addEventListener('load', function() {
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'ViewContent', { content_name: 'Registration Form', content_category: 'Form' });
+                fbq('track', 'ViewContent', {
+                    content_name: 'Registration Form',
+                    content_category: 'Form'
+                });
             }
         });
 
         document.querySelectorAll('input, select').forEach(field => {
-            field.addEventListener('blur', function() { if (this.value) validateForm(); });
+            field.addEventListener('blur', function() {
+                if (this.value) validateForm();
+            });
         });
     </script>
 </body>
