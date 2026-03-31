@@ -39,7 +39,7 @@ function initHeroCarousel() {
 // ============================================================
 function initCountdown() {
     // Set deadline to 30 March 2026 midnight
-    const deadline = new Date('2026-03-30T23:59:59');
+    const deadline = new Date('2026-04-15T23:59:59');
 
     function update() {
         const now  = new Date().getTime();
@@ -84,6 +84,33 @@ function initCountdown() {
 // ============================================================
 // VIDEO MODALS
 // ============================================================
+// function initVideoModals() {
+//     const items   = document.querySelectorAll('.video-item');
+//     const modal   = document.getElementById('videoModal');
+//     const close   = document.querySelector('.video-close');
+//     const player  = document.getElementById('videoPlayer');
+
+//     if (!modal) return;
+
+//     items.forEach(item => {
+//         item.addEventListener('click', () => {
+//             const id = item.dataset.video;
+//             player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+//             modal.classList.add('show');
+//             document.body.style.overflow = 'hidden';
+//         });
+//     });
+
+//     const closeModal = () => {
+//         modal.classList.remove('show');
+//         player.src = '';
+//         document.body.style.overflow = '';
+//     };
+
+//     close.addEventListener('click', closeModal);
+//     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+//     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+// }
 function initVideoModals() {
     const items   = document.querySelectorAll('.video-item');
     const modal   = document.getElementById('videoModal');
@@ -93,8 +120,19 @@ function initVideoModals() {
     if (!modal) return;
 
     items.forEach(item => {
+        const id  = item.dataset.video;
+        const img = item.querySelector('img');
+
+        // ✅ Set thumbnail with fallback
+        if (img) {
+            img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+            img.onerror = () => {
+                img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+            };
+        }
+
+        // ✅ Existing click logic (unchanged)
         item.addEventListener('click', () => {
-            const id = item.dataset.video;
             player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
@@ -108,10 +146,13 @@ function initVideoModals() {
     };
 
     close.addEventListener('click', closeModal);
-    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    modal.addEventListener('click', e => { 
+        if (e.target === modal) closeModal(); 
+    });
+    document.addEventListener('keydown', e => { 
+        if (e.key === 'Escape') closeModal(); 
+    });
 }
-
 // ============================================================
 // ANIMATED COUNTERS
 // ============================================================
@@ -268,3 +309,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
+
