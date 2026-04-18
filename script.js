@@ -39,7 +39,7 @@ function initHeroCarousel() {
 // ============================================================
 function initCountdown() {
     // Set deadline to 30 March 2026 midnight
-    const deadline = new Date('2026-04-15T23:59:59');
+    const deadline = new Date('2026-04-30T23:59:59');
 
     function update() {
         const now  = new Date().getTime();
