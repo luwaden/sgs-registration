@@ -38,47 +38,47 @@ function initHeroCarousel() {
 // COUNTDOWN — target: 30th March 2026
 // ============================================================
 function initCountdown() {
-    // Set deadline to 30 March 2026 midnight
-    const deadline = new Date('2026-04-30T23:59:59');
+    // Set deadline to April 30th, 2026
+    const deadline = new Date('2026-06-30T19:59:59').getTime();
 
     function update() {
-        const now  = new Date().getTime();
-        const dist = deadline.getTime() - now;
+        const now = new Date().getTime();
+        const distance = deadline - now;
 
-        if (dist <= 0) {
-            ['days','hours','minutes','seconds'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.textContent = '00';
-            });
-            document.querySelectorAll('#daysLeft, #daysLeft2, #daysLeft3').forEach(el => {
-                el.textContent = '0';
-            });
-            return;
-        }
+        // Calculations for days, hours, minutes, and seconds
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        const d = Math.floor(dist / 86400000);
-        const h = Math.floor((dist % 86400000) / 3600000);
-        const m = Math.floor((dist % 3600000) / 60000);
-        const s = Math.floor((dist % 60000) / 1000);
+        // 1. Update the main countdown clock (if elements exist)
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minsEl = document.getElementById('minutes');
+        const secsEl = document.getElementById('seconds');
 
-        setEl('days',    pad(d));
-        setEl('hours',   pad(h));
-        setEl('minutes', pad(m));
-        setEl('seconds', pad(s));
+        if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+        if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
+        if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
 
-        document.querySelectorAll('#daysLeft, #daysLeft2, #daysLeft3').forEach(el => {
-            el.textContent = d;
+        // 2. Update all "Days Left" text placeholders across the page
+        // We use querySelectorAll to find all versions (daysLeft, daysLeft2, daysLeft3)
+        const placeholders = document.querySelectorAll('#daysLeft, #daysLeft2, #daysLeft3');
+        placeholders.forEach(el => {
+            el.textContent = d > 0 ? d : 0; // Show 0 if the date has passed
         });
+
+        // If the countdown is finished
+        if (distance < 0) {
+            clearInterval(timerInterval);
+        }
     }
 
-    function pad(n) { return String(n).padStart(2, '0'); }
-    function setEl(id, val) {
-        const el = document.getElementById(id);
-        if (el) el.textContent = val;
-    }
-
+    // Run once immediately so there's no 1-second delay
     update();
-    setInterval(update, 1000);
+    // Update every second
+    const timerInterval = setInterval(update, 1000);
 }
 
 // ============================================================
