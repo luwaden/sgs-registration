@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Register for the Grant Writing Course - School of Grant Success">
     <title>Register Now - School of Grant Success</title>
+    <link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"/>
     
 <!-- Meta Pixel Code -->
 <script>
@@ -210,6 +212,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             border-top: 1px solid var(--gray-light);
         }
 
+        .iti{
+            width:100%;
+        }
+
+        .iti input{
+            width:100%;
+            padding:14px 18px 14px 95px !important;
+        }
+
         @media (max-width: 480px) {
             .name-row { grid-template-columns: 1fr; }
             .name-row .form-group { margin-bottom: 25px; }
@@ -255,12 +266,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="error-message" id="emailError">Please enter a valid email address</div>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="whatsapp">WhatsApp Number <span class="required">*</span></label>
                     <input type="tel" id="whatsapp" name="whatsapp" required placeholder="+234 800 000 0000">
                     <div class="error-message" id="whatsappError">Please enter your WhatsApp number</div>
-                </div>
+                </div> -->
+                <div class="form-group">
+                <label for="whatsapp"> WhatsApp Number <span class="required">*</span></label>
+                <input
+                    type="tel"
+                    id="whatsapp"
+                    name="whatsapp"
+                    required>
 
+                <div class="error-message" id="whatsappError">Please enter a valid WhatsApp number </div>
+            </div>
                 <div class="form-group">
                     <label for="city">City <span class="required">*</span></label>
                     <input type="text" id="city" name="city" required placeholder="e.g., Lagos, Nairobi, Accra">
@@ -325,10 +345,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span>🔒</span> Your information is secure and encrypted
         </div>
     </div>
-
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
     <script>
         const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDRVsQJXBysL-Z1QIDoDXwhaP_xhWlwZ7Of9QuKE8gjAE-4X_2I2YWgMSbiQ_veafj/exec';
+        
         const THANK_YOU_PAGE  = 'thankyou.html';
+
+        const phoneInput =
+document.querySelector("#whatsapp");
+
+const iti =
+window.intlTelInput(phoneInput, {
+    initialCountry: "auto",
+
+    geoIpLookup(callback) {
+        fetch("https://ipapi.co/json/")
+        .then(r => r.json())
+        .then(data => callback(data.country_code))
+        .catch(() => callback("ng"));
+    },
+
+    separateDialCode: true,
+
+    preferredCountries: [
+        "ng",
+        "gh",
+        "ke",
+        "za",
+        "ug"
+    ],
+
+    nationalMode: false,
+
+    autoPlaceholder: "aggressive",
+
+    utilsScript:
+    "https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/utils.js"
+});
+
 
         document.getElementById('registrationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -344,7 +398,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 lastName:     lastName,
                 fullName:     firstName + ' ' + lastName,   // kept for backend compatibility
                 email:        document.getElementById('email').value.trim(),
-                whatsapp:     document.getElementById('whatsapp').value.trim(),
+                // whatsapp:     document.getElementById('whatsapp').value.trim(),
+                whatsapp:     iti.getNumber(),
                 city:         document.getElementById('city').value.trim(),
                 state:        document.getElementById('state').value.trim(),
                 country:      document.getElementById('country').value,
@@ -411,10 +466,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 showError('email', 'emailError'); isValid = false;
             } else { hideError('email', 'emailError'); }
 
-            const whatsapp = document.getElementById('whatsapp');
-            if (!whatsapp.value.trim() || whatsapp.value.trim().length < 10) {
-                showError('whatsapp', 'whatsappError'); isValid = false;
-            } else { hideError('whatsapp', 'whatsappError'); }
+            // const whatsapp = document.getElementById('whatsapp');
+            // if (!whatsapp.value.trim() || whatsapp.value.trim().length < 10) {
+            //     showError('whatsapp', 'whatsappError'); isValid = false;
+            // } else { hideError('whatsapp', 'whatsappError'); }
+
+            const whatsapp =
+document.getElementById('whatsapp');
+
+if (
+    !whatsapp.value.trim() ||
+    !iti.isValidNumber()
+){
+    showError(
+        'whatsapp',
+        'whatsappError'
+    );
+
+    isValid=false;
+
+}else{
+    hideError(
+        'whatsapp',
+        'whatsappError'
+    );
+}
 
             const city = document.getElementById('city');
             if (!city.value.trim()) {
