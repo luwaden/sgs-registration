@@ -3,10 +3,10 @@
 // ============================================================
 
 // ---- CONFIGURATION — paste your links here ----
-const FORM_LINK          = "/registration-form.html";
-const SELAR_ONE_TIME     = "/registration-form.html";
-const SELAR_TWO_PAYMENT  = "/registration-form.html";
-const SELAR_THREE_PAYMENT = "/registration-form.html";
+const FORM_LINK          = "/reg-form.html";
+const SELAR_ONE_TIME     = "/reg-form.html";
+const SELAR_TWO_PAYMENT  = "/reg-form.html";
+const SELAR_THREE_PAYMENT = "/reg-form.html";
 const WHATSAPP_GROUP     = "PASTE_WHATSAPP_GROUP_LINK";
 
 // ---- Boot ----

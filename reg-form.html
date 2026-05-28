@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for the Grant Writing Course - School of Grant Success">
+    <title>Register Now - School of Grant Success</title>
+
+    <!-- intl-tel-input CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/css/intlTelInput.css"/>
+
+    <!-- Country-State-City CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/country-state-city@3.2.1/dist/index.umd.min.js"></script>
+
+    <link rel="stylesheet" href="./reg-folder/reg.css">
+
+    <!-- Meta Pixel -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2015151565705493');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2015151565705493&ev=PageView&noscript=1"/></noscript>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-MCS8FJXM');</script>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MCS8FJXM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <div class="form-wrapper">
+        <div class="form-header">
+            <img src="https://res.cloudinary.com/dergk96ic/image/upload/sogs1_u61cbo.png" alt="School of Grant Success" class="logo">
+            <h1 class="form-title">Secure Your Spot Now</h1>
+            <p class="form-subtitle">Join 500+ African entrepreneurs winning grants</p>
+            <span class="urgency-badge">🔥 Limited Spots Available</span>
+        </div>
+
+        <div class="form-body" id="formBody">
+            <form id="registrationForm">
+
+                <!-- First Name + Last Name -->
+                <div class="name-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name <span class="required">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required placeholder="e.g., Amara">
+                        <div class="error-message" id="firstNameError">Please enter your first name</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name <span class="required">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required placeholder="e.g., Okafor">
+                        <div class="error-message" id="lastNameError">Please enter your last name</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" required placeholder="your@email.com">
+                    <div class="error-message" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number <span class="required">*</span></label>
+                    <input type="tel" id="whatsapp" name="whatsapp" required>
+                    <div class="error-message" id="whatsappError">Please enter a valid WhatsApp number</div>
+                </div>
+
+                <!-- Country -->
+                <div class="form-group">
+                    <label for="country">Country <span class="required">*</span></label>
+                    <select id="country" name="country" required>
+                        <option value="">Select your country</option>
+                    </select>
+                    <div class="error-message" id="countryError">Please select your country</div>
+                </div>
+
+                <!-- State/Province -->
+                <div class="form-group">
+                    <label for="state">State/Province <span class="required">*</span></label>
+                    <select id="state" name="state" required>
+                        <option value="">Select your state/province</option>
+                    </select>
+                    <div class="error-message" id="stateError">Please select your state/province</div>
+                </div>
+
+                <!-- City (Optional) -->
+                <div class="form-group">
+                    <label for="city">City <span class="optional-tag">(Optional)</span></label>
+                    <select id="city" name="city">
+                        <option value="">Select your city (optional)</option>
+                    </select>
+                </div>
+
+                <!-- Payment Plan -->
+                <div class="form-group">
+                    <div class="payment-section-label">💳 Choose Your Payment Plan</div>
+                    <label for="paymentPlan">Payment Plan <span class="required">*</span></label>
+                    <select id="paymentPlan" name="paymentPlan" required>
+                        <option value="">Select a payment plan</option>
+                        <option value="One-Time Payment — ₦55,000">One-Time Payment — ₦55,000 (Best Value)</option>
+                        <option value="2-Part Payment — ₦30,000 x 2">2-Part Payment — ₦30,000 × 2 (₦60,000 total)</option>
+                        <option value="3-Part Payment — ₦25,000 + ₦20,000 + ₦20,000">3-Part Payment — ₦25,000 + ₦20,000 + ₦20,000 (₦65,000 total)</option>
+                    </select>
+                    <div class="error-message" id="paymentPlanError">Please select a payment plan</div>
+                    <p class="payment-hint">ℹ️ Payment instructions will be sent to your email after registration.</p>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    Complete Registration
+                </button>
+            </form>
+
+            <div class="loading" id="loadingState">
+                <div class="spinner"></div>
+                <p>Processing your registration...</p>
+            </div>
+        </div>
+
+        <div class="security-badge">
+            <span>🔒</span> Your information is secure and encrypted
+        </div>
+    </div>
+
+    <!-- intl-tel-input JS -->
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.0/build/js/utils.js"></script>
+    <script type="module" src="./reg-folder/reg.js"></script>
+</body>
+</html>
