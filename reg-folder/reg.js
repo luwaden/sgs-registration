@@ -1,7 +1,7 @@
 import { Country, State, City } from "https://cdn.jsdelivr.net/npm/country-state-city/+esm";
 
 // !! IMPORTANT: After redeploying Apps Script, paste your new URL here
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwyr-MIj_ZFU9jRlRjZKamscR3_b7eOrt8BoKDllhTaTpmsrQBGzipfrsN8a9xuKwNo/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyDWahVYtUlVc6iPvHoQVfe3VWA9zrj2mrbOwl8C9LtTN68V7JOspMJx-idlnl5jeMF/exec';
 const THANK_YOU_PAGE  = './thankyou.html';
 
 // ── intl-tel-input ────────────────────────────────────────────
@@ -189,7 +189,8 @@ document.getElementById('registrationForm').addEventListener('submit', async fun
         lastName,
         fullName:     firstName + ' ' + lastName,
         email:        document.getElementById('email').value.trim().toLowerCase(),
-        whatsapp:     iti.getNumber() || phoneInput.value.trim(),
+        // whatsapp:     iti.getNumber() || phoneInput.value.trim(),
+       whatsapp:     `${iti.getSelectedCountryData().dialCode}${phoneInput.value.trim().replace(/\D/g, '').replace(/^0+/, '')}`,
         city:         document.getElementById('city').value || '',
         state:        getSelectedName(stateSelect),
         country:      getSelectedName(countrySelect),
