@@ -1,7 +1,7 @@
 import { Country, State, City } from "https://cdn.jsdelivr.net/npm/country-state-city/+esm";
 
 // !! IMPORTANT: After redeploying Apps Script, paste your new URL here
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwLbJb2OhQiGphejBZRYpVvcbk53Nz1_lv7Kakl2PZT9J6kGzhNtDaSgd8Dwo78PWUp/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyKQlxJzEONqE-2v9yIZ7Slrux7IZP-UncGswqwnl_sCIMVpkDOtq3Mt51JOYoxIeui/exec';
 const THANK_YOU_PAGE  = './thankyou.html';
 
 // ── intl-tel-input ────────────────────────────────────────────
