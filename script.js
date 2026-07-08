@@ -1,13 +1,9 @@
 // ============================================================
 // SCHOOL OF GRANT SUCCESS — script.js
 // ============================================================
-
-// ---- CONFIGURATION — paste your links here ----
-const FORM_LINK          = "/reg-form.html";
-const SELAR_ONE_TIME     = "/reg-form.html";
-const SELAR_TWO_PAYMENT  = "/reg-form.html";
-const SELAR_THREE_PAYMENT = "/reg-form.html";
-const WHATSAPP_GROUP     = "PASTE_WHATSAPP_GROUP_LINK";
+// NOTE: All CTA buttons are now real <a href="reg-form.html"> links
+// directly in the HTML, so they work even if JavaScript fails to
+// load. This file only handles the interactive extras below.
 
 // ---- Boot ----
 document.addEventListener('DOMContentLoaded', () => {
@@ -18,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonialCarousels();
     initFAQ();
     initStickyCTA();
-    setupCTAButtons();
 });
 
 // ============================================================
@@ -35,23 +30,20 @@ function initHeroCarousel() {
 }
 
 // ============================================================
-// COUNTDOWN — target: 30th March 2026
+// COUNTDOWN — target: July 30, 2026, 7:00 PM
 // ============================================================
 function initCountdown() {
-    // Set deadline to April 30th, 2026
-    const deadline = new Date('2026-06-30T19:59:59').getTime();
+    const deadline = new Date('2026-07-30T19:00:00').getTime();
 
     function update() {
         const now = new Date().getTime();
         const distance = deadline - now;
 
-        // Calculations for days, hours, minutes, and seconds
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
+        const d = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+        const h = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+        const m = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+        const s = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
 
-        // 1. Update the main countdown clock (if elements exist)
         const daysEl = document.getElementById('days');
         const hoursEl = document.getElementById('hours');
         const minsEl = document.getElementById('minutes');
@@ -62,55 +54,24 @@ function initCountdown() {
         if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
         if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
 
-        // 2. Update all "Days Left" text placeholders across the page
-        // We use querySelectorAll to find all versions (daysLeft, daysLeft2, daysLeft3)
+        // Update all "Days Left" text placeholders across the page
         const placeholders = document.querySelectorAll('#daysLeft, #daysLeft2, #daysLeft3');
         placeholders.forEach(el => {
-            el.textContent = d > 0 ? d : 0; // Show 0 if the date has passed
+            el.textContent = d > 0 ? d : 0;
         });
 
-        // If the countdown is finished
         if (distance < 0) {
             clearInterval(timerInterval);
         }
     }
 
-    // Run once immediately so there's no 1-second delay
     update();
-    // Update every second
     const timerInterval = setInterval(update, 1000);
 }
 
 // ============================================================
 // VIDEO MODALS
 // ============================================================
-// function initVideoModals() {
-//     const items   = document.querySelectorAll('.video-item');
-//     const modal   = document.getElementById('videoModal');
-//     const close   = document.querySelector('.video-close');
-//     const player  = document.getElementById('videoPlayer');
-
-//     if (!modal) return;
-
-//     items.forEach(item => {
-//         item.addEventListener('click', () => {
-//             const id = item.dataset.video;
-//             player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-//             modal.classList.add('show');
-//             document.body.style.overflow = 'hidden';
-//         });
-//     });
-
-//     const closeModal = () => {
-//         modal.classList.remove('show');
-//         player.src = '';
-//         document.body.style.overflow = '';
-//     };
-
-//     close.addEventListener('click', closeModal);
-//     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-//     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-// }
 function initVideoModals() {
     const items   = document.querySelectorAll('.video-item');
     const modal   = document.getElementById('videoModal');
@@ -123,7 +84,6 @@ function initVideoModals() {
         const id  = item.dataset.video;
         const img = item.querySelector('img');
 
-        // ✅ Set thumbnail with fallback
         if (img) {
             img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
             img.onerror = () => {
@@ -131,7 +91,6 @@ function initVideoModals() {
             };
         }
 
-        // ✅ Existing click logic (unchanged)
         item.addEventListener('click', () => {
             player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
             modal.classList.add('show');
@@ -146,13 +105,14 @@ function initVideoModals() {
     };
 
     close.addEventListener('click', closeModal);
-    modal.addEventListener('click', e => { 
-        if (e.target === modal) closeModal(); 
+    modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
     });
-    document.addEventListener('keydown', e => { 
-        if (e.key === 'Escape') closeModal(); 
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
     });
 }
+
 // ============================================================
 // ANIMATED COUNTERS
 // ============================================================
@@ -267,39 +227,6 @@ function initStickyCTA() {
 }
 
 // ============================================================
-// CTA BUTTONS — all go to form link
-// ============================================================
-function setupCTAButtons() {
-    const ids = [
-        'headerCTA','heroCTA','resultsCTA','solutionCTA',
-        'carouselCTA','incomeCTA','urgencyCTA','finalCTA',
-        'pricingCTA1','pricingCTA2','pricingCTA3',
-        'finalPay1','finalPay2','finalPay3',
-        'stickyBtn'
-    ];
-
-    // Pricing cards go to their specific Selar links
-    const selarMap = {
-        'pricingCTA1': SELAR_ONE_TIME,
-        'pricingCTA2': SELAR_TWO_PAYMENT,
-        'pricingCTA3': SELAR_THREE_PAYMENT,
-        'finalPay1':   SELAR_ONE_TIME,
-        'finalPay2':   SELAR_TWO_PAYMENT,
-        'finalPay3':   SELAR_THREE_PAYMENT,
-    };
-
-    ids.forEach(id => {
-        const btn = document.getElementById(id);
-        if (btn) {
-            btn.addEventListener('click', () => {
-                const dest = selarMap[id] || FORM_LINK;
-                window.location.href = dest;
-            });
-        }
-    });
-}
-
-// ============================================================
 // SMOOTH SCROLL
 // ============================================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -309,4 +236,3 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 });
-

@@ -28,6 +28,18 @@ body {
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 img { max-width: 100%; height: auto; display: block; }
 
+/* ======================== GLOBAL BUTTON / LINK RESET ======================== */
+/* Ensures every CTA — whether a <button> or an <a> — looks and behaves like a button */
+a.btn-header, a.btn-hero, a.btn-cta-red, a.btn-cta-green, a.btn-pricing,
+a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
+.btn-header, .btn-hero, .btn-cta-red, .btn-cta-green, .btn-pricing,
+.btn-final-cta, .btn-pay, .btn-sticky, .success-btn {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
 /* ======================== HEADER ======================== */
 .header {
     background: var(--white);
@@ -105,33 +117,45 @@ img { max-width: 100%; height: auto; display: block; }
     line-height: 1.15;
     max-width: 860px;
 }
+.hero-sub2 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+    opacity: 0.95;
+    font-style: italic;
+    font-weight: 500;
+}
 .hero-subtitle {
     font-size: 1.3rem;
-    margin-bottom: 8px;
+    margin-bottom: 26px;
     max-width: 760px;
     font-weight: 400;
     line-height: 1.6;
 }
-.hero-sub2 {
-    font-size: 1.1rem;
-    margin-bottom: 26px;
-    opacity: 0.9;
-    font-style: italic;
-}
-.btn-hero {
-    background: var(--yellow);
-    color: var(--dark);
-    padding: 17px 52px;
+
+/* Hero CTA — made bold, big, and unmissable (red, per request) */
+.btn-hero, a.btn-hero {
+    background: var(--red);
+    color: var(--white);
+    padding: 22px 64px;
     border: none;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 1.15rem;
+    font-size: 1.3rem;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+    box-shadow: 0 10px 34px rgba(231,76,60,0.5);
     letter-spacing: 0.5px;
+    animation: pulseGlow 2.2s infinite;
 }
-.btn-hero:hover { transform: scale(1.05); box-shadow: 0 14px 36px rgba(0,0,0,0.35); }
+.btn-hero:hover, a.btn-hero:hover {
+    background: #c0392b;
+    transform: scale(1.06);
+    box-shadow: 0 16px 42px rgba(231,76,60,0.6);
+}
+@keyframes pulseGlow {
+    0%, 100% { box-shadow: 0 10px 34px rgba(231,76,60,0.5); }
+    50% { box-shadow: 0 10px 44px rgba(231,76,60,0.85); }
+}
 
 /* Countdown */
 .countdown-timer {
@@ -930,19 +954,6 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 0.88rem;
 }
 
-/* Adjust sticky CTA positioning */
-.sticky-cta {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: var(--green-1);
-    padding: 12px 16px;
-    z-index: 998;
-    display: none;
-    box-shadow: 0 -4px 18px rgba(0,0,0,0.18);
-}
-
 /* Mobile adjustments */
 @media (max-width: 768px) {
     .disclaimer-section {
@@ -1017,11 +1028,11 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (max-width: 768px) {
     /* Hero */
-    .hero-carousel { height: 620px; }
+    .hero-carousel { height: 660px; }
     .hero-title { font-size: 2rem; }
+    .hero-sub2 { font-size: 1.05rem; }
     .hero-subtitle { font-size: 1rem; }
-    .hero-sub2 { font-size: 0.93rem; }
-    .btn-hero { padding: 14px 36px; font-size: 1rem; }
+    .btn-hero, a.btn-hero { padding: 18px 44px; font-size: 1.1rem; }
 
     /* Countdown on one row, compact */
     .countdown-timer {
@@ -1084,7 +1095,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 @media (max-width: 480px) {
-    .hero-carousel { height: 580px; }
+    .hero-carousel { height: 620px; }
     .hero-title { font-size: 1.75rem; }
     .countdown-timer { max-width: 300px; gap: 6px; }
     .countdown-item { padding: 8px 6px; }
@@ -1158,7 +1169,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* GRID */
 .success-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* ✅ mobile: 2 per row */
+    grid-template-columns: repeat(2, 1fr); /* mobile: 2 per row */
     gap: 12px;
 }
 
@@ -1207,14 +1218,14 @@ img { max-width: 100%; height: auto; display: block; }
     background: #15803d;
 }
 
-/* 📲 TABLET */
+/* TABLET */
 @media (min-width: 768px) {
     .success-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-/* 💻 DESKTOP */
+/* DESKTOP */
 @media (min-width: 1024px) {
     .success-grid {
         grid-template-columns: repeat(4, 1fr);
