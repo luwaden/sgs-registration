@@ -2,7 +2,7 @@
    SCHOOL OF GRANT SUCCESS — styles.css
    ============================================ */
 
-*{ margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --green-1: #19A44D;
@@ -14,12 +14,6 @@
     --dark: #1A2332;
     --gray: #7F8C8D;
     --light: #F4F6F7;
-
-    /* Premium accents */
-    --gold: #D4AF37;
-    --gold-deep: #A8842A;
-    --deep-green: #0E3B27;
-    --charcoal: #10161D;
 }
 
 html { scroll-behavior: smooth; }
@@ -105,30 +99,15 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     padding: 40px 20px;
 }
 .hero-preheadline {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1px;
-    background: rgba(16, 22, 29, 0.55);
-    border: 1px solid rgba(212, 175, 55, 0.55);
-    backdrop-filter: blur(6px);
+    background: var(--red);
     color: var(--white);
-    padding: 9px 26px;
-    border-radius: 14px;
-    margin-bottom: 20px;
-}
-.cohort-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 2px;
+    padding: 7px 22px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    margin-bottom: 18px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    opacity: 0.85;
-}
-.cohort-date {
-    font-size: 1.05rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--gold);
 }
 .hero-title {
     font-family: 'Playfair Display', serif;
@@ -153,29 +132,29 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     line-height: 1.6;
 }
 
-/* Hero CTA — premium gold, kept bold and unmissable but no longer clashing with the red badge */
+/* Hero CTA — made bold, big, and unmissable (red, per request) */
 .btn-hero, a.btn-hero {
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep));
-    color: var(--charcoal);
-    padding: 20px 60px;
+    background: var(--red);
+    color: var(--white);
+    padding: 22px 64px;
     border: none;
     border-radius: 50px;
     font-weight: 800;
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-    box-shadow: 0 10px 32px rgba(212,175,55,0.45);
+    box-shadow: 0 10px 34px rgba(231,76,60,0.5);
     letter-spacing: 0.5px;
-    animation: pulseGlow 2.6s infinite;
+    animation: pulseGlow 2.2s infinite;
 }
 .btn-hero:hover, a.btn-hero:hover {
-    background: linear-gradient(135deg, #e0bd4a, var(--gold));
-    transform: scale(1.05);
-    box-shadow: 0 16px 40px rgba(212,175,55,0.6);
+    background: #c0392b;
+    transform: scale(1.06);
+    box-shadow: 0 16px 42px rgba(231,76,60,0.6);
 }
 @keyframes pulseGlow {
-    0%, 100% { box-shadow: 0 10px 32px rgba(212,175,55,0.45); }
-    50% { box-shadow: 0 10px 40px rgba(212,175,55,0.75); }
+    0%, 100% { box-shadow: 0 10px 34px rgba(231,76,60,0.5); }
+    50% { box-shadow: 0 10px 44px rgba(231,76,60,0.85); }
 }
 
 /* Countdown */
@@ -645,14 +624,14 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 }
 .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 14px 38px rgba(0,0,0,0.12); }
 .pricing-card.featured {
-    background: linear-gradient(135deg, var(--deep-green), var(--green-1));
+    background: linear-gradient(135deg, var(--green-1), var(--green-2));
     color: var(--white);
-    border: 3px solid var(--gold);
+    border: 3px solid var(--yellow);
 }
 .pricing-badge {
     position: absolute; top: -14px; left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: var(--charcoal);
+    background: var(--yellow); color: var(--dark);
     padding: 6px 18px; border-radius: 20px;
     font-weight: 800; font-size: 0.8rem; letter-spacing: 1px;
     white-space: nowrap;
@@ -676,7 +655,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     letter-spacing: 0.5px;
 }
 .btn-pricing:hover { transform: scale(1.04); }
-.pricing-card.featured .btn-pricing { background: var(--gold); color: var(--charcoal); }
+.pricing-card.featured .btn-pricing { background: var(--white); color: var(--green-1); }
 .payment-note { text-align: center; margin-top: 28px; color: var(--gray); font-size: 0.95rem; }
 
 /* ======================== GUARANTEE / INCOME STREAMS ======================== */
@@ -816,14 +795,14 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     text-align: center;
     font-size: 1.3rem;
     font-style: italic;
-    color: var(--gold-deep);
+    color: var(--green-2);
     font-family: 'Playfair Display', serif;
 }
 
 /* ======================== FINAL CTA ======================== */
 .final-cta {
     padding: 90px 0;
-    background: linear-gradient(135deg, var(--charcoal), var(--dark));
+    background: linear-gradient(135deg, var(--dark), #2c3e50);
     color: var(--white);
     text-align: center;
 }
@@ -874,7 +853,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     font-size: 1.8rem;
     text-align: center;
     margin-bottom: 28px;
-    color: var(--gold);
+    color: var(--yellow);
 }
 .final-payment-grid {
     display: grid;
@@ -889,12 +868,12 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.1);
 }
-.final-pay-item.featured-pay { border-color: var(--gold); background: rgba(212,175,55,0.08); }
+.final-pay-item.featured-pay { border-color: var(--yellow); background: rgba(229,241,42,0.08); }
 .pay-label { font-size: 0.88rem; opacity: 0.75; margin-bottom: 8px; letter-spacing: 0.5px; text-transform: uppercase; }
-.pay-amount { font-size: 2rem; font-weight: 800; color: var(--gold); margin-bottom: 4px; }
+.pay-amount { font-size: 2rem; font-weight: 800; color: var(--yellow); margin-bottom: 4px; }
 .pay-detail { font-size: 0.8rem; opacity: 0.65; margin-bottom: 14px; }
 .btn-pay {
-    background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: var(--charcoal);
+    background: var(--yellow); color: var(--dark);
     padding: 10px 22px;
     border: none; border-radius: 6px;
     font-weight: 800; font-size: 0.88rem;
@@ -1025,14 +1004,14 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 /* ======================== STICKY CTA MOBILE ======================== */
 .sticky-cta {
     position: fixed; bottom: 0; left: 0; width: 100%;
-    background: var(--deep-green);
+    background: var(--green-1);
     padding: 12px 16px;
     z-index: 998; display: none;
     box-shadow: 0 -4px 18px rgba(0,0,0,0.18);
 }
 .sticky-cta.show { display: block; }
 .btn-sticky {
-    width: 100%; background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: var(--charcoal);
+    width: 100%; background: var(--yellow); color: var(--dark);
     padding: 14px;
     border: none; border-radius: 8px;
     font-weight: 800; font-size: 1.05rem;
@@ -1053,20 +1032,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     .hero-title { font-size: 2rem; }
     .hero-sub2 { font-size: 1.05rem; }
     .hero-subtitle { font-size: 1rem; }
-
-    /* Cohort badge: collapse to one compact line so it doesn't compete with the headline */
-    .hero-preheadline {
-        flex-direction: row;
-        gap: 6px;
-        padding: 5px 16px;
-        border-radius: 20px;
-        margin-bottom: 14px;
-    }
-    .cohort-label { font-size: 0.62rem; letter-spacing: 1px; }
-    .cohort-date { font-size: 0.68rem; }
-
-    /* Hero button: smaller on mobile so it balances against the badge, not competes with it */
-    .btn-hero, a.btn-hero { padding: 15px 38px; font-size: 1rem; }
+    .btn-hero, a.btn-hero { padding: 18px 44px; font-size: 1.1rem; }
 
     /* Countdown on one row, compact */
     .countdown-timer {

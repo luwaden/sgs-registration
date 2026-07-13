@@ -24,9 +24,6 @@
     </noscript>
     <!-- End Meta Pixel Code -->
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
     <style>
         * {
             margin: 0;
@@ -37,19 +34,16 @@
         :root {
             --sgs-green-1: #19A44D;
             --sgs-green-2: #2D9961;
-            --sgs-deep-green: #0E3B27;
-            --sgs-charcoal: #10161D;
-            --sgs-gold: #D4AF37;
-            --sgs-gold-deep: #A8842A;
+            --sgs-yellow: #E5F12A;
             --white: #FEFFFF;
-            --gray-dark: #1E2A2F;
+            --gray-dark: #2C3E50;
             --gray-medium: #7F8C8D;
             --gray-light: #ECF0F1;
         }
 
         body {
-            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-            background: linear-gradient(150deg, var(--sgs-charcoal) 0%, var(--sgs-deep-green) 55%, #0B241A 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            background: linear-gradient(135deg, var(--sgs-green-1), var(--sgs-green-2));
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -62,54 +56,60 @@
             max-width: 700px;
             width: 100%;
             border-radius: 20px;
-            box-shadow: 0 25px 70px rgba(0,0,0,0.45);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             overflow: hidden;
             animation: slideUp 0.5s ease;
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .thankyou-header {
-            background: linear-gradient(135deg, var(--sgs-charcoal), var(--sgs-deep-green) 60%, var(--sgs-green-1));
-            padding: 44px 30px;
+            background: linear-gradient(135deg, var(--sgs-green-1), var(--sgs-green-2));
+            padding: 40px 30px;
             text-align: center;
             color: var(--white);
-            border-bottom: 3px solid var(--sgs-gold);
         }
 
         .success-icon {
-            width: 92px;
-            height: 92px;
-            background-color: rgba(212,175,55,0.16);
-            border: 2px solid var(--sgs-gold);
+            width: 100px;
+            height: 100px;
+            background-color: rgba(255,255,255,0.2);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 20px;
-            font-size: 3rem;
-            color: var(--sgs-gold);
+            font-size: 3.5rem;
             animation: scaleIn 0.5s ease 0.3s backwards;
         }
 
         @keyframes scaleIn {
-            from { transform: scale(0); }
-            to { transform: scale(1); }
+            from {
+                transform: scale(0);
+            }
+            to {
+                transform: scale(1);
+            }
         }
 
         .thankyou-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 10px;
         }
 
         .thankyou-subtitle {
-            font-size: 1.05rem;
-            opacity: 0.85;
+            font-size: 1.2rem;
+            opacity: 0.95;
             line-height: 1.6;
         }
 
@@ -119,32 +119,46 @@
 
         .personalized-message {
             text-align: center;
-            margin-bottom: 26px;
+            margin-bottom: 30px;
         }
 
         .personalized-message h2 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: var(--gray-dark);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .personalized-message p {
             color: var(--gray-medium);
             line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .urgency-banner {
+            background-color: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            padding: 15px 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .urgency-banner p {
+            color: var(--gray-dark);
+            font-weight: 600;
+            margin: 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--gray-dark);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        /* ===== Payment options — compact height ===== */
         .payment-options {
             display: grid;
-            gap: 12px;
+            gap: 15px;
             margin-bottom: 30px;
         }
 
@@ -152,27 +166,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
-            border: 2px solid var(--gray-light);
-            border-radius: 10px;
+            padding: 20px 25px;
+            border: 3px solid var(--gray-light);
+            border-radius: 12px;
             background-color: var(--white);
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             color: var(--gray-dark);
         }
 
         .payment-btn:hover {
-            border-color: var(--sgs-deep-green);
-            background-color: var(--sgs-deep-green);
+            border-color: var(--sgs-green-1);
+            background-color: var(--sgs-green-1);
             color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(14, 59, 39, 0.25);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(25, 164, 77, 0.2);
         }
 
         .payment-btn.featured {
-            border-color: var(--sgs-gold);
-            background: linear-gradient(135deg, var(--sgs-deep-green), var(--sgs-green-1));
+            border-color: var(--sgs-green-1);
+            background: linear-gradient(135deg, var(--sgs-green-1), var(--sgs-green-2));
             color: var(--white);
             position: relative;
         }
@@ -180,172 +194,145 @@
         .payment-btn.featured::before {
             content: "BEST VALUE";
             position: absolute;
-            top: -10px;
-            right: 16px;
-            background: linear-gradient(135deg, var(--sgs-gold), var(--sgs-gold-deep));
-            color: var(--sgs-charcoal);
-            padding: 3px 12px;
+            top: -12px;
+            right: 20px;
+            background-color: var(--sgs-yellow);
+            color: var(--gray-dark);
+            padding: 5px 15px;
             border-radius: 20px;
-            font-size: 0.65rem;
+            font-size: 0.75rem;
             font-weight: 800;
-            letter-spacing: 0.5px;
         }
 
-        .payment-info { flex: 1; }
+        .payment-info {
+            flex: 1;
+        }
 
         .payment-title {
-            font-size: 0.98rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
         }
 
         .payment-description {
-            font-size: 0.78rem;
+            font-size: 0.9rem;
             opacity: 0.8;
         }
 
         .payment-price {
-            font-size: 1.15rem;
+            font-size: 1.5rem;
             font-weight: 800;
         }
 
         .savings-badge {
             background-color: #E8F5E9;
             color: var(--sgs-green-1);
-            padding: 3px 10px;
+            padding: 5px 12px;
             border-radius: 20px;
-            font-size: 0.68rem;
+            font-size: 0.8rem;
             font-weight: 700;
-            margin-left: 8px;
+            margin-left: 10px;
         }
 
         .payment-btn.featured .savings-badge {
-            background-color: rgba(212,175,55,0.25);
-            color: var(--sgs-gold);
+            background-color: rgba(255,255,255,0.3);
+            color: var(--white);
         }
 
-        /* ===== Download brochure button ===== */
-        .download-section {
-            text-align: center;
+        .features-list {
+            background-color: var(--gray-light);
+            padding: 25px;
+            border-radius: 12px;
             margin-bottom: 30px;
         }
 
-        .download-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: var(--white);
-            color: var(--sgs-deep-green);
-            border: 2px solid var(--sgs-deep-green);
-            padding: 13px 28px;
-            border-radius: 50px;
-            text-decoration: none;
+        .features-list h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: var(--gray-dark);
+        }
+
+        .features-list ul {
+            list-style: none;
+        }
+
+        .features-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            color: var(--gray-dark);
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--sgs-green-1);
             font-weight: 700;
-            font-size: 0.98rem;
-            transition: all 0.25s ease;
         }
 
-        .download-btn:hover {
-            background-color: var(--sgs-deep-green);
-            color: var(--white);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(14,59,39,0.25);
-        }
-
-        /* ===== WhatsApp community (join group) ===== */
-        .community-cta {
-            text-align: center;
-            padding: 28px 25px;
-            background: linear-gradient(135deg, var(--sgs-charcoal), var(--sgs-deep-green));
-            border-radius: 14px;
-            margin-bottom: 18px;
-            color: var(--white);
-        }
-
-        .community-cta h3 {
-            font-size: 1.15rem;
-            margin-bottom: 8px;
-            color: var(--white);
-        }
-
-        .community-cta p {
-            color: rgba(255,255,255,0.75);
-            margin-bottom: 18px;
-            font-size: 0.92rem;
-        }
-
-        .community-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #25D366;
-            color: var(--white);
-            padding: 13px 28px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
-            transition: all 0.25s ease;
-        }
-
-        .community-btn:hover {
-            background-color: #20BA5A;
-            transform: scale(1.04);
-        }
-
-        /* ===== WhatsApp 1:1 support ===== */
         .whatsapp-cta {
             text-align: center;
-            padding: 22px;
-            background-color: var(--gray-light);
-            border-radius: 14px;
-            margin-bottom: 24px;
+            padding: 25px;
+            background-color: #E8F5E9;
+            border-radius: 12px;
         }
 
         .whatsapp-cta h3 {
-            font-size: 1.05rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
             color: var(--gray-dark);
         }
 
         .whatsapp-cta p {
             color: var(--gray-medium);
-            margin-bottom: 16px;
-            font-size: 0.9rem;
+            margin-bottom: 20px;
         }
 
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background-color: var(--sgs-deep-green);
+            gap: 10px;
+            background-color: #25D366;
             color: var(--white);
-            padding: 12px 26px;
+            padding: 15px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.95rem;
-            transition: all 0.25s ease;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
         }
 
         .whatsapp-btn:hover {
-            background-color: var(--sgs-green-1);
-            transform: scale(1.04);
+            background-color: #20BA5A;
+            transform: scale(1.05);
         }
 
         .security-note {
             text-align: center;
             padding: 20px;
             color: var(--gray-medium);
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             border-top: 1px solid var(--gray-light);
         }
 
         @media (max-width: 768px) {
-            .thankyou-title { font-size: 1.85rem; }
-            .thankyou-body { padding: 30px 20px; }
-            .payment-btn { padding: 10px 16px; }
-            .payment-price { font-size: 1.05rem; }
+            .thankyou-title {
+                font-size: 2rem;
+            }
+
+            .thankyou-body {
+                padding: 30px 20px;
+            }
+
+            .payment-btn {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .payment-price {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -362,8 +349,13 @@
         <div class="thankyou-body">
             <!-- Personalized Message -->
             <div class="personalized-message">
-                <h2>Welcome, <span id="userName">Future Grant Winner</span> 🎉</h2>
+                <h2>Welcome, <span id="userName">Future Grant Winner</span>! 🎉</h2>
                 <p>We've received your registration and sent a confirmation email to <strong id="userEmail">your inbox</strong>.</p>
+            </div>
+
+            <!-- Urgency Banner -->
+            <div class="urgency-banner">
+                <p>⚡ Secure your spot now! Early bird pricing ends soon and spots are filling fast.</p>
             </div>
 
             <!-- Section Title -->
@@ -395,7 +387,7 @@
                 </a>
 
                 <!-- Option 3: 3-Payment Plan -->
-                <a href="https://selar.com/p/7126491112?affiliate=7q863x1bz7" class="payment-btn" id="paymentOption3">
+                <a href="https://selar.com/p/7126491112?affiliate=7q863x1bz7"               class="payment-btn" id="paymentOption3">
                     <div class="payment-info">
                         <div class="payment-title">3-Payment Plan</div>
                         <div class="payment-description">₦25,000 + ₦20,000 + ₦20,000 installments</div>
@@ -406,35 +398,25 @@
                 </a>
             </div>
 
-            <!-- Download Brochure -->
-            <div class="download-section">
-                <a href="course-brochure.pdf" download="SGS-Course-Brochure.pdf" class="download-btn" id="downloadBrochure">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                    Download Course Brochure (PDF)
-                </a>
+            <!-- What You Get -->
+            <div class="features-list">
+                <h3>What You'll Get:</h3>
+                <ul>
+                    <li>6-Week Live Training Sessions</li>
+                    <li>50+ Professional Grant Writing Templates</li>
+                    <li>1-on-1 Mentorship & Proposal Reviews</li>
+                    <li>Exclusive Community of 500+ Grant Winners</li>
+                    <li>Certificate of Completion</li>
+                    <li>Recorded Sessions for Lifetime Access</li>
+                </ul>
             </div>
 
-            <!-- Join WhatsApp Community -->
-            <div class="community-cta">
-                <h3>Join Our WhatsApp Community</h3>
-                <p>Connect with 500+ funded entrepreneurs and get weekly grant opportunities</p>
-                <a href="https://chat.whatsapp.com/LMUv6k6ZkHSCZMn7ReKvsN" class="community-btn" target="_blank" rel="noopener">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                        <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411zm-8.475 18.297c-1.777 0-3.518-.479-5.032-1.378l-.36-.214-3.742.98 1-3.648-.235-.374c-.99-1.571-1.512-3.389-1.512-5.26.003-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898 1.868 1.869 2.893 4.352 2.892 6.993-.003 5.451-4.437 9.887-9.887 9.887z"/>
-                    </svg>
-                    Join the Community
-                </a>
-            </div>
-
-            <!-- WhatsApp 1:1 Support -->
+            <!-- WhatsApp CTA -->
             <div class="whatsapp-cta">
                 <h3>Have Questions?</h3>
                 <p>Chat with us on WhatsApp for instant support</p>
-                <a href="https://wa.me/message/65EHVJDK5XQMM1" class="whatsapp-btn" target="_blank" rel="noopener">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <a href="https://wa.me/message/65EHVJDK5XQMM1" class="whatsapp-btn" target="_blank">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
                         <path d="M20.52 3.449C18.24 1.245 15.24 0 12.045 0 5.463 0 .104 5.334.101 11.893c0 2.096.549 4.14 1.595 5.945L0 24l6.335-1.652c1.746.943 3.71 1.444 5.71 1.447h.006c6.585 0 11.946-5.336 11.949-11.896 0-3.176-1.24-6.165-3.495-8.411zm-8.475 18.297c-1.777 0-3.518-.479-5.032-1.378l-.36-.214-3.742.98 1-3.648-.235-.374c-.99-1.571-1.512-3.389-1.512-5.26.003-5.45 4.437-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898 1.868 1.869 2.893 4.352 2.892 6.993-.003 5.451-4.437 9.887-9.887 9.887z"/>
                     </svg>
@@ -458,7 +440,7 @@
         // Load personalized data
         window.addEventListener('load', function() {
             const registrationData = sessionStorage.getItem('registrationData');
-
+            
             if (registrationData) {
                 const data = JSON.parse(registrationData);
                 document.getElementById('userName').textContent = data.name;
@@ -478,33 +460,45 @@
         // Payment button handlers
         document.getElementById('paymentOption1').addEventListener('click', function(e) {
             e.preventDefault();
+            
+            // Track Purchase event
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'AddToCart', { content_name: 'One-Time Payment', value: 55000, currency: 'NGN' });
+                fbq('track', 'AddToCart', {
+                    content_name: 'One-Time Payment',
+                    value: 55000,
+                    currency: 'NGN'
+                });
             }
+            
             window.location.href = SELAR_ONE_TIME;
         });
 
         document.getElementById('paymentOption2').addEventListener('click', function(e) {
             e.preventDefault();
+            
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'AddToCart', { content_name: '2-Payment Plan', value: 60000, currency: 'NGN' });
+                fbq('track', 'AddToCart', {
+                    content_name: '2-Payment Plan',
+                    value: 60000,
+                    currency: 'NGN'
+                });
             }
+            
             window.location.href = SELAR_TWO_PAYMENT;
         });
 
         document.getElementById('paymentOption3').addEventListener('click', function(e) {
             e.preventDefault();
+            
             if (typeof fbq !== 'undefined') {
-                fbq('track', 'AddToCart', { content_name: '3-Payment Plan', value: 65000, currency: 'NGN' });
+                fbq('track', 'AddToCart', {
+                    content_name: '3-Payment Plan',
+                    value: 65000,
+                    currency: 'NGN'
+                });
             }
+            
             window.location.href = SELAR_THREE_PAYMENT;
-        });
-
-        // Track brochure downloads
-        document.getElementById('downloadBrochure').addEventListener('click', function() {
-            if (typeof fbq !== 'undefined') {
-                fbq('track', 'ViewContent', { content_name: 'Course Brochure Download' });
-            }
         });
     </script>
 </body>

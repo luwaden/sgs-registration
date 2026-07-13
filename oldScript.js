@@ -1,0 +1,238 @@
+// ============================================================
+// SCHOOL OF GRANT SUCCESS — script.js
+// ============================================================
+// NOTE: All CTA buttons are now real <a href="reg-form.html"> links
+// directly in the HTML, so they work even if JavaScript fails to
+// load. This file only handles the interactive extras below.
+
+// ---- Boot ----
+document.addEventListener('DOMContentLoaded', () => {
+    initHeroCarousel();
+    initCountdown();
+    initVideoModals();
+    initAnimatedCounters();
+    initTestimonialCarousels();
+    initFAQ();
+    initStickyCTA();
+});
+
+// ============================================================
+// HERO CAROUSEL
+// ============================================================
+function initHeroCarousel() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    let current = 0;
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+    }, 5000);
+}
+
+// ============================================================
+// COUNTDOWN — target: July 30, 2026, 7:00 PM
+// ============================================================
+function initCountdown() {
+    const deadline = new Date('2026-07-30T19:00:00').getTime();
+
+    function update() {
+        const now = new Date().getTime();
+        const distance = deadline - now;
+
+        const d = Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)));
+        const h = Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)));
+        const m = Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)));
+        const s = Math.max(0, Math.floor((distance % (1000 * 60)) / 1000));
+
+        const daysEl = document.getElementById('days');
+        const hoursEl = document.getElementById('hours');
+        const minsEl = document.getElementById('minutes');
+        const secsEl = document.getElementById('seconds');
+
+        if (daysEl) daysEl.textContent = String(d).padStart(2, '0');
+        if (hoursEl) hoursEl.textContent = String(h).padStart(2, '0');
+        if (minsEl) minsEl.textContent = String(m).padStart(2, '0');
+        if (secsEl) secsEl.textContent = String(s).padStart(2, '0');
+
+        // Update all "Days Left" text placeholders across the page
+        const placeholders = document.querySelectorAll('#daysLeft, #daysLeft2, #daysLeft3');
+        placeholders.forEach(el => {
+            el.textContent = d > 0 ? d : 0;
+        });
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+        }
+    }
+
+    update();
+    const timerInterval = setInterval(update, 1000);
+}
+
+// ============================================================
+// VIDEO MODALS
+// ============================================================
+function initVideoModals() {
+    const items   = document.querySelectorAll('.video-item');
+    const modal   = document.getElementById('videoModal');
+    const close   = document.querySelector('.video-close');
+    const player  = document.getElementById('videoPlayer');
+
+    if (!modal) return;
+
+    items.forEach(item => {
+        const id  = item.dataset.video;
+        const img = item.querySelector('img');
+
+        if (img) {
+            img.src = `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+            img.onerror = () => {
+                img.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
+            };
+        }
+
+        item.addEventListener('click', () => {
+            player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    const closeModal = () => {
+        modal.classList.remove('show');
+        player.src = '';
+        document.body.style.overflow = '';
+    };
+
+    close.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') closeModal();
+    });
+}
+
+// ============================================================
+// ANIMATED COUNTERS
+// ============================================================
+function initAnimatedCounters() {
+    const counters = document.querySelectorAll('.metric-number[data-target]');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(c => observer.observe(c));
+}
+
+function animateCounter(el) {
+    const target = parseInt(el.dataset.target);
+    const dur    = 2000;
+    const step   = target / (dur / 16);
+    let current  = 0;
+
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            el.textContent = fmt(target);
+            clearInterval(timer);
+        } else {
+            el.textContent = fmt(Math.floor(current));
+        }
+    }, 16);
+}
+
+function fmt(n) {
+    if (n >= 1000000) return '$' + (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000)    return (n / 1000).toFixed(0) + '+';
+    return n.toString() + '+';
+}
+
+// ============================================================
+// TESTIMONIAL CAROUSELS (multiple on page)
+// ============================================================
+function initTestimonialCarousels() {
+    const carouselEls = document.querySelectorAll('.testimonial-carousel');
+    carouselEls.forEach(carousel => setupCarousel(carousel));
+}
+
+function setupCarousel(carousel) {
+    const items   = carousel.querySelectorAll('.carousel-testimonial');
+    const prevBtn = carousel.querySelector('.carousel-btn.prev');
+    const nextBtn = carousel.querySelector('.carousel-btn.next');
+    const dotsEl  = carousel.querySelector('.carousel-dots');
+
+    if (!items.length) return;
+
+    let idx = 0;
+
+    // Build dots
+    items.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(dot);
+    });
+
+    const dots = carousel.querySelectorAll('.carousel-dot');
+
+    function goTo(i) {
+        items[idx].classList.remove('active');
+        dots[idx].classList.remove('active');
+        idx = (i + items.length) % items.length;
+        items[idx].classList.add('active');
+        dots[idx].classList.add('active');
+    }
+
+    prevBtn && prevBtn.addEventListener('click', () => goTo(idx - 1));
+    nextBtn && nextBtn.addEventListener('click', () => goTo(idx + 1));
+
+    // Auto-advance
+    setInterval(() => goTo(idx + 1), 5000);
+}
+
+// ============================================================
+// FAQ ACCORDION
+// ============================================================
+function initFAQ() {
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.querySelector('.faq-question').addEventListener('click', () => {
+            const open = item.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+            if (!open) item.classList.add('active');
+        });
+    });
+}
+
+// ============================================================
+// STICKY CTA
+// ============================================================
+function initStickyCTA() {
+    const sticky = document.getElementById('stickyCTA');
+    const hero   = document.querySelector('.hero-carousel');
+    if (!sticky || !hero) return;
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > hero.offsetTop + hero.offsetHeight) {
+            sticky.classList.add('show');
+        } else {
+            sticky.classList.remove('show');
+        }
+    }, { passive: true });
+}
+
+// ============================================================
+// SMOOTH SCROLL
+// ============================================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+});
