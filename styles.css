@@ -2,7 +2,7 @@
    SCHOOL OF GRANT SUCCESS — styles.css
    ============================================ */
 
-*{ margin: 0; padding: 0; box-sizing: border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
     --green-1: #19A44D;
@@ -92,7 +92,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 
 .hero-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(135deg, rgba(25,164,77,0.88) 0%, rgba(26,35,50,0.80) 100%);
+    background: linear-gradient(135deg, rgba(14,59,39,0.90) 0%, rgba(16,22,29,0.86) 100%);
     z-index: 1;
 }
 .hero-content {
@@ -132,21 +132,21 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 }
 .hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: 3.6rem;
+    font-size: clamp(1.85rem, 6vw, 3.6rem);
     font-weight: 900;
     margin-bottom: 18px;
-    line-height: 1.15;
+    line-height: 1.18;
     max-width: 860px;
 }
 .hero-sub2 {
-    font-size: 1.25rem;
+    font-size: clamp(1rem, 3vw, 1.25rem);
     margin-bottom: 10px;
     opacity: 0.95;
     font-style: italic;
     font-weight: 500;
 }
 .hero-subtitle {
-    font-size: 1.3rem;
+    font-size: clamp(0.92rem, 2.6vw, 1.3rem);
     margin-bottom: 26px;
     max-width: 760px;
     font-weight: 400;
@@ -187,15 +187,15 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     margin-top: 32px;
 }
 .countdown-item {
-    background: rgba(255,255,255,0.18);
+    background: rgba(16, 22, 29, 0.55);
     backdrop-filter: blur(10px);
     padding: 16px 18px;
     border-radius: 10px;
     min-width: 84px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.25);
+    border: 1px solid rgba(212, 175, 55, 0.35);
 }
-.countdown-value { display: block; font-size: 2.2rem; font-weight: 800; line-height: 1; }
+.countdown-value { display: block; font-size: 2.2rem; font-weight: 800; line-height: 1; color: var(--gold); }
 .countdown-label { display: block; font-size: 0.78rem; text-transform: uppercase; margin-top: 5px; letter-spacing: 1px; opacity: 0.85; }
 
 /* ======================== MARKETING VIDEO ======================== */
@@ -354,7 +354,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     color: var(--white);
 }
 .rejection-section .section-title { color: var(--white); }
-.subtitle-accent { color: var(--yellow); font-style: italic; }
+.subtitle-accent { color: var(--gold); font-style: italic; }
 
 .rejection-content { max-width: 860px; margin: 0 auto; }
 .rejection-intro { font-size: 1.2rem; line-height: 1.8; margin-bottom: 32px; text-align: center; }
@@ -366,12 +366,12 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 }
 .rejection-box {
     background: rgba(255,255,255,0.07);
-    border-left: 4px solid var(--yellow);
+    border-left: 4px solid var(--gold);
     padding: 30px;
     border-radius: 0 12px 12px 0;
     margin-bottom: 30px;
 }
-.rejection-box h3 { margin-bottom: 16px; font-size: 1.2rem; color: var(--yellow); }
+.rejection-box h3 { margin-bottom: 16px; font-size: 1.2rem; color: var(--gold); }
 .truth-list { list-style: none; }
 .truth-list li { padding: 8px 0; font-size: 1.05rem; line-height: 1.6; }
 
@@ -391,7 +391,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 900;
-    color: var(--yellow);
+    color: var(--gold);
     margin-bottom: 8px;
 }
 .solution-sub { font-size: 1.1rem; color: var(--green-3); margin-bottom: 10px; }
@@ -411,7 +411,7 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     border-top: 3px solid var(--green-1);
 }
 .wyg-icon { font-size: 2rem; margin-bottom: 10px; }
-.wyg-item h4 { font-size: 1.05rem; margin-bottom: 10px; color: var(--yellow); }
+.wyg-item h4 { font-size: 1.05rem; margin-bottom: 10px; color: var(--gold); }
 .wyg-item p { font-size: 0.9rem; line-height: 1.6; opacity: 0.85; }
 
 /* ======================== COURSE STRUCTURE ======================== */
@@ -519,8 +519,8 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     transition: all 0.3s ease;
 }
 .video-item:hover .play-button {
-    background: var(--yellow);
-    color: var(--dark);
+    background: var(--gold);
+    color: var(--charcoal);
     transform: translate(-50%, -50%) scale(1.15);
 }
 
@@ -668,15 +668,16 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 
 .btn-pricing {
     width: 100%;
-    background: var(--yellow); color: var(--dark);
+    background: var(--deep-green); color: var(--white);
     padding: 14px;
     border: none; border-radius: 8px;
     font-weight: 800; font-size: 1rem;
     cursor: pointer; transition: all 0.3s;
     letter-spacing: 0.5px;
 }
-.btn-pricing:hover { transform: scale(1.04); }
+.btn-pricing:hover { background: var(--green-1); transform: scale(1.04); }
 .pricing-card.featured .btn-pricing { background: var(--gold); color: var(--charcoal); }
+.pricing-card.featured .btn-pricing:hover { background: #e0bd4a; }
 .payment-note { text-align: center; margin-top: 28px; color: var(--gray); font-size: 0.95rem; }
 
 /* ======================== GUARANTEE / INCOME STREAMS ======================== */
@@ -752,15 +753,15 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     margin-right: auto;
 }
 .btn-final-cta {
-    background: var(--yellow); color: var(--dark);
+    background: linear-gradient(135deg, var(--gold), var(--gold-deep)); color: var(--charcoal);
     padding: 18px 56px;
     border: none; border-radius: 50px;
     font-weight: 800; font-size: 1.25rem;
     cursor: pointer; transition: all 0.3s;
-    box-shadow: 0 8px 28px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.3);
     letter-spacing: 0.5px;
 }
-.btn-final-cta:hover { transform: scale(1.05); box-shadow: 0 14px 36px rgba(0,0,0,0.35); }
+.btn-final-cta:hover { transform: scale(1.05); box-shadow: 0 14px 36px rgba(0,0,0,0.4); }
 
 /* ======================== FAQ ======================== */
 .faq { padding: 80px 0; background: var(--light); }
@@ -958,11 +959,11 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 }
 .footer-logo { height: 52px; margin-bottom: 16px; filter: brightness(0) invert(1); }
 .footer-description { line-height: 1.7; opacity: 0.8; font-size: 0.93rem; }
-.footer-col h4 { margin-bottom: 16px; font-size: 1.1rem; color: var(--yellow); }
+.footer-col h4 { margin-bottom: 16px; font-size: 1.1rem; color: var(--gold); }
 .footer-links, .footer-contact { list-style: none; }
 .footer-links li, .footer-contact li { margin-bottom: 10px; }
 .footer-links a { color: var(--white); text-decoration: none; opacity: 0.75; transition: all 0.3s; font-size: 0.93rem; }
-.footer-links a:hover { opacity: 1; color: var(--yellow); }
+.footer-links a:hover { opacity: 1; color: var(--gold); }
 .footer-contact li { opacity: 0.85; font-size: 0.93rem; }
 /* Footer bottom margin fix */
 .footer-bottom {
@@ -1048,11 +1049,9 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
 }
 
 @media (max-width: 768px) {
-    /* Hero */
-    .hero-carousel { height: 660px; }
-    .hero-title { font-size: 2rem; }
-    .hero-sub2 { font-size: 1.05rem; }
-    .hero-subtitle { font-size: 1rem; }
+    /* Hero — type now scales fluidly via clamp(), so only layout tweaks needed here */
+    .hero-carousel { height: 600px; }
+    .hero-content { padding: 28px 18px; }
 
     /* Cohort badge: collapse to one compact line so it doesn't compete with the headline */
     .hero-preheadline {
@@ -1126,11 +1125,34 @@ a.btn-final-cta, a.btn-pay, a.btn-sticky, a.success-btn,
     .marketing-video-wrapper {
         padding-bottom: 56.25%; /* standard 16:9 on mobile */
     }
+
+    /* ---- Tighter, more efficient section rhythm on phones ---- */
+    .marketing-video-section,
+    .metrics,
+    .success-stories,
+    .rejection-section,
+    .course-structure,
+    .video-testimonials,
+    .testimonial-carousel-section,
+    .pricing,
+    .guarantee-section,
+    .urgency-section,
+    .faq,
+    .faculty-section,
+    .final-cta { padding: 50px 0; }
+
+    .section-subtitle { margin-bottom: 30px; font-size: 1rem; }
+    .testimonial-grid { gap: 18px; }
+    .week-card, .testimonial-card, .income-card { padding: 24px; }
+    .outcomes-box { padding: 26px; }
+
+    /* Comfortable 48px+ tap targets for every CTA on touch devices */
+    .btn-cta-red, .btn-cta-green, .btn-final-cta, .btn-header,
+    .success-btn, .btn-pricing, .btn-pay { min-height: 48px; }
 }
 
 @media (max-width: 480px) {
-    .hero-carousel { height: 620px; }
-    .hero-title { font-size: 1.75rem; }
+    .hero-carousel { height: 560px; }
     .countdown-timer { max-width: 300px; gap: 6px; }
     .countdown-item { padding: 8px 6px; }
     .countdown-value { font-size: 1.3rem; }
